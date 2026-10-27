@@ -150,7 +150,9 @@ No public Wokwi simulation URL was included in the supplied materials. Add the p
 
 ## m. Author
 
-**Mechatronics Engineering | Embedded Systems | Automotive Engineering**
+**Ahmed Abbas**
 
-- GitHub: [abbasahmed494-coder](https://github.com/abbasahmed494-coder)
-- LinkedIn: [Ahmed Abbas](https://www.linkedin.com/in/ahmed-abbas-7a7b04221/)
+Mechatronics Engineering | Embedded Systems | Automotive Engineering
+
+GitHub: https://github.com/abbasahmed494-coder
+LinkedIn: https://www.linkedin.com/in/ahmed-abbas-7a7b04221/
