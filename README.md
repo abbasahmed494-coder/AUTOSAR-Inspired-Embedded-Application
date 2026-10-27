@@ -1,12 +1,12 @@
 # AUTOSAR-Inspired Embedded Application
 
-## a. Project Overview
+## 1. Project Overview
 
 This project demonstrates a layered embedded sensor-monitoring application built around an **Arduino Uno**, a **DHT22 temperature/humidity sensor**, and a **red warning LED**. The application samples the sensor periodically, reports measurements to the Serial Monitor, and turns on the warning LED when the measured temperature is **30.0 °C or higher**. Its modules are organized to illustrate ideas associated with the AUTOSAR Classic Platform, including a separation between application logic, an RTE-style interface, and hardware-facing drivers.
 
 **Scope note:** This is an educational, AUTOSAR-inspired architecture, not an AUTOSAR-compliant implementation. It does not use an AUTOSAR toolchain, generated RTE, ARXML configuration, or the full AUTOSAR Basic Software stack.
 
-## b. Project Objectives
+## 2. Project Objectives
 
 - Read temperature and relative humidity from a DHT22 sensor.
 - Evaluate the temperature against a configurable warning threshold of 30.0 °C.
@@ -15,7 +15,7 @@ This project demonstrates a layered embedded sensor-monitoring application built
 - Demonstrate modular C++ organization with driver, RTE-style, and application modules.
 - Record observed behavior and provide circuit and demonstration evidence suitable for a project portfolio.
 
-## c. Components and Tools
+## 3. Components and Tools
 
 | Component / tool | Purpose |
 |---|---|
@@ -30,7 +30,7 @@ This project demonstrates a layered embedded sensor-monitoring application built
 
 The circuit images supplied with the project are included in `docs/wiring-diagram.png` and `media/circuit.png`.
 
-## d. System Architecture
+## 4. System Architecture
 
 The software is separated into three conceptual layers:
 
@@ -43,7 +43,7 @@ The software is separated into three conceptual layers:
 
 This is a simplified conceptual mapping for learning; the use of similarly named layers does not make the application compliant with AUTOSAR specifications.
 
-## e. Circuit Connections
+## 5. Circuit Connections
 
 | Device pin | Arduino Uno connection |
 |---|---|
@@ -57,7 +57,7 @@ The DHT22 driver is configured for pin D2 and the LED driver for pin D7. Follow 
 
 ![Wiring diagram](docs/wiring-diagram.png)
 
-## f. Software Implementation
+## 6. Software Implementation
 
 - `SensorDriver.cpp` initializes the DHT22 and returns temperature/humidity readings. It checks for null output pointers and invalid (`NaN`) sensor readings.
 - `LedDriver.cpp` configures D7 as an output and switches the LED on or off.
@@ -68,7 +68,7 @@ The DHT22 driver is configured for pin D2 and the LED driver for pin D7. Follow 
 
 The periodic task uses `millis()` rather than a blocking two-second delay, allowing the main loop to remain responsive.
 
-## g. Testing and Verification
+## 7. Testing and Verification
 
 The recorded run reported ten readings: six samples at 24.0 °C, followed by 29.9 °C, 31.0 °C, 35.2 °C, and 25.6 °C. Humidity remained at 40.0% in the supplied log. The warning stayed OFF below the threshold, turned ON for the two readings above 30.0 °C, and returned OFF when the temperature dropped to 25.6 °C. All ten recorded states match the expected threshold behavior.
 
@@ -82,7 +82,7 @@ The recorded run reported ten readings: six samples at 24.0 °C, followed by 29.
 
 See [`docs/test-results.md`](docs/test-results.md) for the full supplied serial log, test interpretation, and screenshot notes. The provided run did **not** include an exact 30.0 °C reading or an invalid-sensor test, so those cases remain unverified by the recorded results.
 
-## h. How to Run the Simulation
+## 8. How to Run the Simulation
 
 1. Open [Wokwi](https://wokwi.com/) and create an Arduino Uno project, or open the project in the Arduino IDE.
 2. Add an Arduino Uno, DHT22 sensor, red LED, and 220 Ω resistor.
@@ -93,7 +93,7 @@ See [`docs/test-results.md`](docs/test-results.md) for the full supplied serial 
 7. Start the simulation and open the Serial Monitor at **115200 baud**.
 8. Change the DHT22 temperature while the simulation is running. Verify that the LED is OFF below 30.0 °C and ON at or above 30.0 °C. The supplied results demonstrate several values on either side of the threshold, but do not include a recorded measurement at exactly 30.0 °C.
 
-## i. Project Structure
+## 9. Project Structure
 
 ```text
 AUTOSAR-Inspired-Embedded-Application/
@@ -118,7 +118,7 @@ AUTOSAR-Inspired-Embedded-Application/
     └── demo.gif
 ```
 
-## j. Skills Demonstrated
+## 10. Skills Demonstrated
 
 - Embedded C++ programming for Arduino
 - Sensor interfacing and handling invalid sensor readings
@@ -129,7 +129,7 @@ AUTOSAR-Inspired-Embedded-Application/
 - Serial diagnostics and threshold-based decision logic
 - Simulation-based testing, results documentation, and portfolio presentation
 
-## k. Limitations and Future Improvements
+## 11. Limitations and Future Improvements
 
 - The architecture is educational and is **not AUTOSAR-compliant**.
 - The recorded test run uses 40.0% humidity for each sample and does not verify humidity boundary cases.
@@ -138,7 +138,7 @@ AUTOSAR-Inspired-Embedded-Application/
 - Future improvements could include configurable thresholds, unit tests, sensor fault diagnostics, hysteresis to reduce rapid switching near the threshold, an RTOS task, and a documented test plan with repeatable boundary tests.
 - A production automotive implementation would require an appropriate target platform, safety/security analysis where applicable, formal interfaces/configuration, and the required AUTOSAR development toolchain and validation process.
 
-## l. Demonstration
+## 12. Demonstration
 
 The animation alternates between the supplied circuit screenshots showing the warning LED visually OFF and ON. The measurement values and observed state changes are documented in `docs/test-results.md`.
 
@@ -148,7 +148,7 @@ The animation alternates between the supplied circuit screenshots showing the wa
 
 No public Wokwi simulation URL was included in the supplied materials. Add the project URL here after publishing the simulation.
 
-## m. Author
+## 13. Author
 
 **Ahmed Abbas**
 
